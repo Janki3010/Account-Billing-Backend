@@ -22,8 +22,6 @@ from app.middleware.custom_openapi import CustomOpenAPI
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from app.config.settings import settings
-
 limiter = Limiter(key_func=get_remote_address, default_limits=["10/seconds"])
 
 app = FastAPI(title="Account-Billing")
@@ -64,7 +62,3 @@ def rate_limit_exceeded_handler(request: Request, exc: RateLimitExceeded):
         status_code=429,
         content={"detail": "Rate limit exceeded. Try again later."},
     )
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=int(settings.PORT), reload=True)
