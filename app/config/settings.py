@@ -30,4 +30,6 @@ class Settings(BaseSettings):
     USE_CREDENTIALS: bool = os.getenv("USE_CREDENTIALS")
     VALIDATE_CERTS: bool = os.getenv("VALIDATE_CERTS")
 
+    VERIFIED_EMAIL: str = os.getenv("VERIFIED_EMAIL")
+
 settings = Settings()

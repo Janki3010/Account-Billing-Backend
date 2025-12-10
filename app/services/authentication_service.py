@@ -75,6 +75,8 @@ class AuthenticationService:
         email = str(db_user.email)
         access_token = create_access_token(user_id, email)
 
+        if email != settings.VERIFIED_EMAIL:
+            raise HTTPException(status_code=400, detail="Invalid credentials")
         return access_token
 
     def admin_login(self, admin: Login):
