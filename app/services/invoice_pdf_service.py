@@ -51,7 +51,7 @@ class InvoicePDFService:
         # === INVOICE INFO ===
         info_data = [
             ["Invoice No.", invoice_data.invoice_number, "Date", invoice_data.invoice_date.strftime("%d-%m-%Y")],
-            ["Place of Supply", "Uttar Pradesh (09)", "Reverse Charge", "N"]
+            ["Place of Supply", "Ahmedabad, Gujarat", "Reverse Charge", "N"]
         ]
         info_table = Table(info_data, colWidths=[1.5*inch, 2.5*inch, 1.5*inch, 2.5*inch])
         info_table.setStyle(TableStyle([("GRID", (0,0), (-1,-1), 0.25, colors.black)]))
